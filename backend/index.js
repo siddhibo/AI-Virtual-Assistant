@@ -12,26 +12,16 @@ import path from "path"
 
 const app = express()
 
-// CORS configuration for deployment
-const allowedOrigins = [
-    "http://localhost:5173",
-    "http://localhost:3000",
-    process.env.FRONTEND_URL
-].filter(Boolean)
-
+// CORS configuration - Allow your frontend domain
 app.use(cors({
-    origin: function (origin, callback) {
-        // Allow requests with no origin (mobile apps, Postman, etc.)
-        if (!origin) return callback(null, true)
-        
-        if (allowedOrigins.includes(origin)) {
-            callback(null, true)
-        } else {
-            // For dummy project, allow all origins
-            callback(null, true)
-        }
-    },
-    credentials: true
+    origin: [
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "https://ai-virtual-assistant-frontend-ym55.onrender.com"
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
 }))
 
 const port = process.env.PORT || 8000
