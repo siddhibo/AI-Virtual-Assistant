@@ -4,7 +4,9 @@ import React, { createContext, useEffect, useRef, useState } from 'react'
 export const userDataContext = createContext()
 
 function UserContext({ children }) {
-    const serverUrl = "http://localhost:8000"
+    // Use environment variable for production, fallback to localhost for development
+    const serverUrl = import.meta.env.VITE_API_URL || "http://localhost:8000"
+    
     const [userData, setUserData] = useState(null)
     const [frontendImage, setFrontendImage] = useState(null)
     const [backendImage, setBackendImage] = useState(null)
