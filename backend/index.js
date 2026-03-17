@@ -24,6 +24,7 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"]
 }))
 
+// Render assigns a dynamic port via process.env.PORT, keep it available
 const port = process.env.PORT || 8000
 
 app.use(express.json())
