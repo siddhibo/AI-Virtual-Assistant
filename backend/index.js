@@ -17,7 +17,8 @@ app.use(cors({
     origin: [
         "http://localhost:5173",
         "http://localhost:3000",
-        "https://ai-virtual-assistant-frontend-ym55.onrender.com"
+        "https://ai-virtual-assistant-frontend-ym55.onrender.com",
+        "https://ai-virtual-assistant-frontend-ten.vercel.app"
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
